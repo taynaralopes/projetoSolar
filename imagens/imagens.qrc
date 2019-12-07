@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>logo sonnenhaus.png</file>
+        <file>computer-icons-floppy-disk-download-save-button.jpg</file>
+        <file>vector-wheelbarrow-cart-icon-symbol-illustration.jpg</file>
     </qresource>
 </RCC>

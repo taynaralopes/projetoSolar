@@ -17,12 +17,24 @@ int Projeto::size()
 
 void Projeto::inserirCliente(const Consumidor c)
 {
-  projetoSolar.push_back(c);
+    projetoSolar.push_back(c);
 }
 
 int Projeto::QuantidadeDeProjetos()
 {
-   return projetoSolar.size();
+    return projetoSolar.size();
+}
+
+bool Projeto::jaExiste(Consumidor a)
+{
+    if(projetoSolar.size() >= 1){
+        for(int i = 0; i < projetoSolar.size(); i++){
+            if(a.getNome() == projetoSolar[i].getNome()){
+                return 1;
+            }
+        }
+    }
+    return 0;
 }
 
 void Projeto::ordenarPorCliente()
@@ -39,17 +51,17 @@ void Projeto::ordenarPorConsumo()
 bool Projeto::salvarArquivo(QString file)
 {
     QFile arquivo(file);
-        arquivo.open(QIODevice::WriteOnly);
-        if(arquivo.isOpen() == 1){
-            for(auto a: projetoSolar){
-                QString linha = a.getNome() + "," + QString::number(a.getUnidadeConsumidora()) + "," + QString::number(a.getConsumo()) +"\n";
-                arquivo.write(linha.toLocal8Bit());
-            }
-            arquivo.close();
-            return 1;
-        }else{
-            return 0;
+    arquivo.open(QIODevice::WriteOnly);
+    if(arquivo.isOpen() == 1){
+        for(auto a: projetoSolar){
+            QString linha = a.getNome() + "," + QString::number(a.getUnidadeConsumidora()) + "," + QString::number(a.getConsumo()) +"\n";
+            arquivo.write(linha.toLocal8Bit());
         }
+        arquivo.close();
+        return 1;
+    }else{
+        return 0;
+    }
 }
 
 bool Projeto::abrirArquivo(QString file)

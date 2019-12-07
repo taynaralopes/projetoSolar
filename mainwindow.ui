@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>594</width>
-    <height>636</height>
+    <width>658</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,7 +46,7 @@
        <widget class="QLabel" name="label_4">
         <property name="geometry">
          <rect>
-          <x>30</x>
+          <x>70</x>
           <y>20</y>
           <width>171</width>
           <height>121</height>
@@ -62,7 +62,7 @@
          <bool>true</bool>
         </property>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>30</x>
@@ -78,6 +78,13 @@
             <layout class="QVBoxLayout" name="verticalLayout_2">
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout">
+               <item>
+                <widget class="Line" name="line">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
                <item>
                 <widget class="QLabel" name="consumo_2">
                  <property name="font">
@@ -98,12 +105,33 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="Line" name="line_7">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </item>
             </layout>
            </item>
            <item>
+            <widget class="Line" name="line_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
             <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="Line" name="line_3">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+              </widget>
+             </item>
              <item>
               <widget class="QLabel" name="consumo">
                <property name="font">
@@ -121,17 +149,11 @@
               <widget class="QLineEdit" name="add_consumo"/>
              </item>
              <item>
-              <spacer name="horizontalSpacer_6">
+              <widget class="Line" name="line_2">
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Vertical</enum>
                </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
+              </widget>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -156,6 +178,13 @@
             </layout>
            </item>
            <item>
+            <widget class="Line" name="line_5">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
               <spacer name="horizontalSpacer_4">
@@ -175,6 +204,7 @@
                <property name="font">
                 <font>
                  <family>OCR A Extended</family>
+                 <pointsize>10</pointsize>
                 </font>
                </property>
                <property name="text">
@@ -198,6 +228,13 @@
             </layout>
            </item>
           </layout>
+         </item>
+         <item>
+          <widget class="Line" name="line_6">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
          </item>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -394,86 +431,97 @@
               </widget>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_3">
-               <item>
-                <spacer name="verticalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="ordenarNome">
-                 <property name="font">
-                  <font>
-                   <family>MS Reference Sans Serif</family>
-                   <pointsize>9</pointsize>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border-color: rgb(0, 0, 255);</string>
-                 </property>
-                 <property name="text">
-                  <string>Ordenar por Cliente</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_3">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="ordenarConsumo">
-                 <property name="font">
-                  <font>
-                   <family>MS Reference Sans Serif</family>
-                   <pointsize>9</pointsize>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">
-border-color: rgb(0, 0, 0);</string>
-                 </property>
-                 <property name="text">
-                  <string>Ordenar por Consumo</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="verticalSpacer_3">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
+              <widget class="Line" name="line_8">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_3"/>
              </item>
             </layout>
            </item>
           </layout>
          </item>
         </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>530</y>
+          <width>441</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <widget class="QPushButton" name="ordenarNome">
+           <property name="font">
+            <font>
+             <family>MS Reference Sans Serif</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-color: rgb(0, 0, 0);</string>
+           </property>
+           <property name="text">
+            <string>Ordenar por Cliente</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_9">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="ordenarConsumo">
+           <property name="font">
+            <font>
+             <family>MS Reference Sans Serif</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+border-color: rgb(0, 0, 0);</string>
+           </property>
+           <property name="text">
+            <string>Ordenar por Consumo</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLabel" name="titulo">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>30</y>
+          <width>281</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>OCR A Extended</family>
+          <pointsize>36</pointsize>
+         </font>
+        </property>
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>PRO-SOL</string>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_2">
@@ -532,7 +580,7 @@ border-color: rgb(0, 0, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>594</width>
+     <width>658</width>
      <height>21</height>
     </rect>
    </property>
@@ -543,7 +591,22 @@ border-color: rgb(0, 0, 0);</string>
     <addaction name="actionSalvar"/>
     <addaction name="actionCarregar"/>
    </widget>
+   <widget class="QMenu" name="menuEditar">
+    <property name="title">
+     <string>Editar</string>
+    </property>
+    <widget class="QMenu" name="menuExcluir">
+     <property name="title">
+      <string>Excluir </string>
+     </property>
+     <addaction name="actionCliente"/>
+     <addaction name="actionUnidade_Consumidora"/>
+     <addaction name="actionConsumo"/>
+    </widget>
+    <addaction name="menuExcluir"/>
+   </widget>
    <addaction name="menuArquivo"/>
+   <addaction name="menuEditar"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -555,17 +618,59 @@ border-color: rgb(0, 0, 0);</string>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionSalvar">
+   <property name="icon">
+    <iconset resource="imagens/imagens.qrc">
+     <normaloff>:/computer-icons-floppy-disk-download-save-button.jpg</normaloff>:/computer-icons-floppy-disk-download-save-button.jpg</iconset>
+   </property>
    <property name="text">
     <string>Salvar</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="actionCarregar">
+   <property name="icon">
+    <iconset resource="imagens/imagens.qrc">
+     <normaloff>:/vector-wheelbarrow-cart-icon-symbol-illustration.jpg</normaloff>:/vector-wheelbarrow-cart-icon-symbol-illustration.jpg</iconset>
+   </property>
    <property name="text">
     <string>Carregar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionCliente">
+   <property name="text">
+    <string>Cliente</string>
+   </property>
+  </action>
+  <action name="actionUnidade_Consumidora">
+   <property name="text">
+    <string>Unidade Consumidora</string>
+   </property>
+  </action>
+  <action name="actionConsumo">
+   <property name="text">
+    <string>Consumo</string>
+   </property>
+  </action>
+  <action name="actionlimpartabela">
+   <property name="text">
+    <string>limpartabela</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>add_cliente</tabstop>
+  <tabstop>add_consumo</tabstop>
+  <tabstop>add_uc</tabstop>
+  <tabstop>btnInserir</tabstop>
+  <tabstop>tbl_in</tabstop>
+  <tabstop>calendarWidget</tabstop>
+ </tabstops>
  <resources>
   <include location="imagens/imagens.qrc"/>
  </resources>

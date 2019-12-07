@@ -1,8 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-Projeto microgeracao;
-Consumidor consumidor;
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,41 +21,44 @@ void MainWindow::on_btnInserir_clicked()
 
     if((ui->add_uc->text()).isEmpty() and (ui->add_cliente->text()).isEmpty() and (ui->add_consumo->text()).isEmpty()){
         QMessageBox::critical(this,"Erro","Parâmetro vazio");
-
     }else{
-        qDebug() << ui->add_cliente->text();
-        qDebug() << ui->add_consumo->text();
         consumidor.setNome(ui->add_cliente->text());
         consumidor.setUnidadeConsumidora(ui->add_uc->text().toDouble());
         consumidor.setConsumo(ui->add_consumo->text().toDouble());
         consumidor.setPotencia(ui->add_consumo->text().toDouble());
         consumidor.setN_modulos(ui->add_consumo->text().toDouble());
-        microgeracao.inserirCliente(consumidor);
-        int qnt_row = ui->tbl_in->rowCount();
-        ui->tbl_in->insertRow(qnt_row);
-        inserirNaTabela(consumidor, qnt_row);
-        ui->add_cliente->clear();
-        ui->add_uc->clear();
-        ui->add_consumo->clear();
-        ui->lcdProjetosCadastrados->display(microgeracao.size());
+        if(microgeracao.jaExiste(consumidor)){
+            QMessageBox::warning(this,"Erro","O cliente já existe!");
+        }else{
+            microgeracao.inserirCliente(consumidor);
+            int qnt_row = ui->tbl_in->rowCount();
+            ui->tbl_in->insertRow(qnt_row);
+            inserirNaTabela(consumidor, qnt_row);
+            ui->lcdProjetosCadastrados->display(microgeracao.size());
+            ui->add_cliente->clear();
+            ui->add_uc->clear();
+            ui->add_consumo->clear();
+            QMessageBox::information(this,"Cadastrado","Cadastro realizado com sucesso");
+        }
     }
 }
 
 void MainWindow::on_ordenarConsumo_clicked()
 {
-    ui->tbl_in->clearContents();
     microgeracao.ordenarPorConsumo();
+    ui->tbl_in->clearContents();
+    for(int i = 0; i < microgeracao.size();i++){
+        inserirNaTabela(microgeracao[i],i);
+    }
 }
 
 void MainWindow::on_ordenarNome_clicked()
-{
-    ui->tbl_in->clearContents();
-
+{    
     microgeracao.ordenarPorCliente();
+    ui->tbl_in->clearContents();
     for(int i = 0; i < microgeracao.size();i++){
-
+        inserirNaTabela(microgeracao[i],i);
     }
-
 }
 
 void MainWindow::inserirNaTabela(Consumidor consumidor, int row)
@@ -84,6 +86,7 @@ void MainWindow::on_actionCarregar_triggered()
     if(microgeracao.abrirArquivo(filename) == 1){
         QMessageBox::critical(this,"Arquivo"," O arquivo já foi lido, favor cheque a tabela!");
     }else{
+        on_actionlimpartabela_triggered();
         for(int i=0;i< microgeracao.size();i++){
             ui->tbl_in->insertRow(i);
             inserirNaTabela(microgeracao[i], i);
@@ -93,3 +96,9 @@ void MainWindow::on_actionCarregar_triggered()
     }
 }
 
+
+void MainWindow::on_actionlimpartabela_triggered()
+{
+    int qnt = ui->tbl_in->rowCount();
+    for (int i  = 0; i < qnt ; i ++) ui->tbl_in->removeRow(0);
+}

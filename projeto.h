@@ -21,6 +21,7 @@ public:
 
     void inserirCliente(const Consumidor c);
     int QuantidadeDeProjetos();
+    bool jaExiste(Consumidor a);
     void ordenarPorCliente();
     void ordenarPorConsumo();
     bool salvarArquivo(QString file);
@@ -29,7 +30,9 @@ public:
     Consumidor operator[](int indice);
     int size();
     void clear();
+
 };
+
 
 
 
