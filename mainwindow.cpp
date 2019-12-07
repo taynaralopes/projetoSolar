@@ -102,3 +102,60 @@ void MainWindow::on_actionlimpartabela_triggered()
     int qnt = ui->tbl_in->rowCount();
     for (int i  = 0; i < qnt ; i ++) ui->tbl_in->removeRow(0);
 }
+
+void MainWindow::on_tbl_in_cellClicked(int row, int column)
+{
+    if(column == 0){
+            QMessageBox::StandardButton resp = QMessageBox::question(this, "Editar", "Você deseja editar este item?");
+            if(resp == QMessageBox::Yes){
+                bool ok;
+                QString txt = QInputDialog::getText(this, "Alterar Objeto", "Digite o novo objeto", QLineEdit::Normal,"",&ok);
+                if(ok and !txt.isEmpty()){
+                    consumidor.setNome(txt);
+                    consumidor.setUnidadeConsumidora(microgeracao[row].getUnidadeConsumidora());
+                    consumidor.setConsumo(microgeracao[row].getConsumo());
+                    if(microgeracao.jaExiste(consumidor) == 0){
+                        ui->tbl_in->setItem(row, column, new QTableWidgetItem(consumidor.getNome()));
+                    }else
+                        QMessageBox::critical(this,"Erro","O Objeto a ser editado já existe!");
+
+                }else{
+                    QMessageBox::critical(this, "Erro", "O objeto a ser editado está vazio.");
+                }
+            }
+        }
+        if(column == 1){
+            QMessageBox::StandardButton resp = QMessageBox::question(this, "Editar ", "Você deseja editar este item?");
+            if(resp == QMessageBox::Yes){
+                bool ok;
+                QString txt = QInputDialog::getText(this, "Alterar UC", "Digite a novo UC", QLineEdit::Normal,"",&ok);
+                if(ok and !txt.isEmpty()){
+                    consumidor.setNome(microgeracao[row].getNome());
+                    consumidor.setUnidadeConsumidora(txt.toDouble());
+                    consumidor.setConsumo(microgeracao[row].getConsumo());
+                    ui->tbl_in->setItem(row, column, new QTableWidgetItem(QString::number(consumidor.getUnidadeConsumidora())));
+                }else{
+                    QMessageBox::critical(this, "Erro", "O objeto a ser editado está vazio.");
+                }
+            }
+        }
+        if(column == 2){
+            QMessageBox::StandardButton resp = QMessageBox::question(this, "Editar", "Você deseja editar este item?");
+            if(resp == QMessageBox::Yes){
+                bool ok;
+                QString txt = QInputDialog::getText(this, "Alterar Consumo", "Digite o novo consumo", QLineEdit::Normal,"",&ok);
+                if(ok and !txt.isEmpty()){
+                    consumidor.setNome(microgeracao[row].getNome());
+                    consumidor.setUnidadeConsumidora(microgeracao[row].getUnidadeConsumidora());
+                    consumidor.setConsumo(txt.toDouble());
+                    consumidor.setPotencia(txt.toDouble());
+                    consumidor.setN_modulos(microgeracao[row].getPotencia());
+                    ui->tbl_in->setItem(row, column, new QTableWidgetItem(QString::number(consumidor.getConsumo())));
+                    ui->tbl_in->setItem(row, column+2, new QTableWidgetItem(QString::number(consumidor.getPotencia())));
+                    ui->tbl_in->setItem(row, column+1, new QTableWidgetItem(QString::number(consumidor.getN_modulos())));
+                }else{
+                    QMessageBox::critical(this, "Erro", "O objeto a ser editado está vazio.");
+                }
+            }
+        }
+}

@@ -6,6 +6,7 @@
 #include <QVector>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QInputDialog>
 #include <QTableWidget>
 #include "consumidor.h"
 #include "projeto.h"
@@ -42,6 +43,8 @@ private slots:
     void on_btnInserir_clicked();
 
     void on_actionlimpartabela_triggered();
+
+    void on_tbl_in_cellClicked(int row, int column);
 
 private:
     Ui::MainWindow *ui;

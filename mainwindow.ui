@@ -21,7 +21,7 @@
        <string notr="true">background:rgb(255, 255, 127)</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -591,22 +591,7 @@ border-color: rgb(0, 0, 0);</string>
     <addaction name="actionSalvar"/>
     <addaction name="actionCarregar"/>
    </widget>
-   <widget class="QMenu" name="menuEditar">
-    <property name="title">
-     <string>Editar</string>
-    </property>
-    <widget class="QMenu" name="menuExcluir">
-     <property name="title">
-      <string>Excluir </string>
-     </property>
-     <addaction name="actionCliente"/>
-     <addaction name="actionUnidade_Consumidora"/>
-     <addaction name="actionConsumo"/>
-    </widget>
-    <addaction name="menuExcluir"/>
-   </widget>
    <addaction name="menuArquivo"/>
-   <addaction name="menuEditar"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
